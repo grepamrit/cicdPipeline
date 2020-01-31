@@ -23,7 +23,7 @@ pipeline {
 
       }
       steps {
-        sh '''xargs bash -c \'cd `pwd`/testcase/\'
+        sh '''echo `pwd`
 '''
         sh 'sh jenkins/scripts/test.sh'
       }
