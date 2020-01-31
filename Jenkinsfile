@@ -14,8 +14,6 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh '''echo `pwd`
-'''
         sh 'sh jenkins/scripts/test.sh'
       }
       post {
