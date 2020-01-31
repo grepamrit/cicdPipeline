@@ -1,31 +1,27 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build') {
-      agent any
+      steps {
+        sh 'mvn clean install'
+      }    
       post {
         failure {
           emailext(subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}", attachLog: true, to: 'sushan@moco.com.np', from: 'sysadmin@moco.com.np')
         }
-
-      }
-      steps {
-        sh 'mvn clean install'
       }
     }
 
     stage('Test') {
-      agent any
-      post {
-        always {
-          emailext(subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}", attachLog: true, to: 'sushan@moco.com.np', from: 'sysadmin@moco.com.np')
-        }
-
-      }
       steps {
         sh '''echo `pwd`
 '''
         sh 'sh jenkins/scripts/test.sh'
+      }
+      post {
+        always {
+          emailext(subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}", attachLog: true, to: 'sushan@moco.com.np', from: 'sysadmin@moco.com.np')
+        }
       }
     }
 
