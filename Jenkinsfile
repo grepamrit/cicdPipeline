@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       post {
         failure {
-          emailext(subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}", mimeType:'HTML/text', attachLog: true, to: 'sushan@moco.com.np', from: 'sysadmin@moco.com.np', mimeType:'HTML/text' )
+          emailext(subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}", mimeType:'HTML/text', attachLog: true, to: 'sushan@moco.com.np', from: 'sysadmin@moco.com.np')
         }
 
       }
