@@ -24,7 +24,6 @@ pipeline {
     }
 
     stage('Deploy') {
-      agent any
       steps {
         sh 'sh jenkins/scripts/delivery.sh'
         input 'Finished using the mockup maven app? (Click "Proceed" to continue)'
