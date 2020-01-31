@@ -1,9 +1,10 @@
 pipeline {
-	agent any
+	agent none
 	options {
 		skipStagesAfterUnstable()
-		}
+	}
 	stages {
+		agent any
 		stage('Build') {
 			steps {
 				sh 'mvn clean package -Dmaven.test.skip=true'
@@ -16,9 +17,8 @@ pipeline {
 		}
 
 		stage('Test') {
+			agent any
 			steps {
-				sh '''xargs bash -c \'cd `pwd`/testcase/ && mvn install\'
-'''
 				sh 'sh jenkins/scripts/test.sh'
       				}
 			post {
