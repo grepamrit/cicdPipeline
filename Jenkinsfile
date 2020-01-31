@@ -4,8 +4,8 @@ pipeline {
 		skipStagesAfterUnstable()
 	}
 	stages {
-		agent any
 		stage('Build') {
+			agent any
 			steps {
 				sh 'mvn clean package -Dmaven.test.skip=true'
       				}
@@ -29,6 +29,7 @@ pipeline {
 		}
 
 		stage('Deploy') {
+			agent any
 			steps {
 				sh 'sh jenkins/scripts/delivery.sh'
 				input 'Finished using the mockup maven app? (Click "Proceed" to continue)'
