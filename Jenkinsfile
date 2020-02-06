@@ -33,6 +33,10 @@ pipeline {
         sh 'sh jenkins/scripts/kill.sh'
         sh 'echo Thank You'
       }
+      post {
+        always {
+          emailext attachmentsPattern: 'pipeline.log', body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+        }
     }
 
   }
