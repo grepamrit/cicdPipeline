@@ -35,7 +35,7 @@ pipeline {
       }
       post {
         always {
-          emailext attachmentsPattern: 'pipeline.log', body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+          emailext attachmentsPattern: '~/jobs/maven-mockup/branches/master/builds/${BUILD_NUMBER}/log', body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
         }
     }
    }
