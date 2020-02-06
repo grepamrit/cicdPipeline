@@ -32,7 +32,7 @@ pipeline {
         input 'Finished using the mockup maven app? (Click "Proceed" to continue)'
         sh 'sh jenkins/scripts/kill.sh'
         sh 'echo Thank You'
-	sh 'cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> log.txt'
+	sh 'cat ${JENKINS_HOME}/jobs/maven-mockup/branches/master/builds/${BUILD_NUMBER}/log >> log.txt'
       }
       post {
         always {
