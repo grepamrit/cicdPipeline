@@ -38,7 +38,7 @@ pipeline {
           emailext attachmentsPattern: 'pipeline.log', body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
         }
     }
-
+   }
   }
   options {
     skipStagesAfterUnstable()
