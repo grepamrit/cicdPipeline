@@ -16,12 +16,13 @@ pipeline {
     stage('Test') {
       post {
         always {
-          emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+          emailext attachmentsPattern: 'testcase/target/surefire-reports/*html', attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
 	}
 
       }
       steps {
         sh 'sh jenkins/scripts/test.sh'
+        archiveArtifacts 'testcase/target/surefire-reports/*html'
       }
     }
 
