@@ -27,6 +27,13 @@
             <artifactId>gson</artifactId>
             <version>2.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+       
     </dependencies>
     <build>
         <plugins>
@@ -60,3 +67,4 @@
       </plugins>
     </build>
 </project>
+
