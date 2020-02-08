@@ -36,11 +36,10 @@ pipeline {
         input 'Finished using the mockup maven app? (Click "Proceed" to continue)'
         sh 'sh jenkins/scripts/kill.sh'
         sh 'echo Thank You'
-	sh 'cat ${JENKINS_HOME}/jobs/maven-mockup/branches/master/builds/${BUILD_NUMBER}/log >> build.log'
       }
       post {
         always {
-          emailext attachmentsPattern: 'build.log', body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+          emailext attachLog: yes, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
         }
     }
    }
