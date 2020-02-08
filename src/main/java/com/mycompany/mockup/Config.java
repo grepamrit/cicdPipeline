@@ -1,4 +1,4 @@
-package com.mycompany.test;
+package com.mycompany.mockup;
 
 import java.io.FileInputStream;
 import java.io.IOException;

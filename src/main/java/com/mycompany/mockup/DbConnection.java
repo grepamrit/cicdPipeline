@@ -1,5 +1,4 @@
-
-package com.mycompany.test;
+package com.mycompany.mockup;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.mycompany.test;
+package com.mycompany.mockup;
 
 import static spark.Spark.get;
 import com.google.gson.Gson;
