@@ -27,7 +27,7 @@ Background:
    Scenario: Send Get request by valid(Sanjeev) as User Name
    Given path '/role/Sanjeev'
    When method Get
-   Then match response == '"hello Sanjeev"'
+   Then match response == '"hello Sanjeev Vai"'
    And match header Content-Type contains 'text/plain'
       
    
