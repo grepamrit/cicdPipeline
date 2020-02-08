@@ -6,5 +6,5 @@ rm -rf /home/jenkins/deploy/maven-mockup/*
 cp target/test-1.0-SNAPSHOT-jar-with-dependencies.jar /home/jenkins/deploy/maven-mockup
 cp -r etc /home/jenkins/deploy/maven-mockup/
 set -x
-java -jar /home/jenkins/deploy/maven-mockup/test-1.0-SNAPSHOT-jar-with-dependencies.jar &
+java -jar /home/jenkins/deploy/maven-mockup/mockup-0.0.1-SNAPSHOT-jar-with-dependencies.jar &
 set +x
