@@ -6,6 +6,9 @@ pipeline {
         failure {
           emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
 	}
+	always {
+	  junit 'target/surefire-reports/*xml'
+	}
 
       }
       steps {
