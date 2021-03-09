@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       post {
         failure {
-          emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+          emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'amrit@moco.com.np'
 	}
 	always {
 	  junit 'target/surefire-reports/*xml'
@@ -19,7 +19,7 @@ pipeline {
     stage('Test') {
       post {
         always {
-          emailext (attachmentsPattern: 'testcase/target/surefire-reports/*html', attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np')
+          emailext (attachmentsPattern: 'testcase/target/surefire-reports/*html', attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'amrit@moco.com.np')
           junit 'testcase/target/surefire-reports/*xml'
 	}
 
@@ -39,7 +39,7 @@ pipeline {
       }
       post {
         always {
-          emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sushan@moco.com.np'
+          emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'amrit@moco.com.np'
         }
     }
    }
